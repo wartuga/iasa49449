@@ -18,7 +18,7 @@ public enum EventoJogo implements Evento {
      */
     @Override
     public void mostrar() {
-        System.out.printf("Evento: %s", this);
+        System.out.printf("Evento: %s\n", this);
     }
 }
 // transformar a letra num evento

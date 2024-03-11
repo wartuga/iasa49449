@@ -17,7 +17,7 @@ public class AmbienteJogo implements Ambiente {
      * Guarda o evento atual do ambiente do jogo
      * Adquirida através de uma relação unidirecional
      */
-    public EventoJogo evento;
+    private EventoJogo evento;
     /**
      * Mapa para o mapeamento das teclas num determinado evento
      * fazendo assim a associação entre estes
@@ -32,7 +32,6 @@ public class AmbienteJogo implements Ambiente {
     private Scanner scanner = new Scanner(System.in);
 
     public AmbienteJogo() {
-        this.evento = gerarEvento();
         this.eventos = new HashMap<String,EventoJogo>();
         eventos.put("s", EventoJogo.SILENCIO);
         eventos.put("r", EventoJogo.RUIDO);
@@ -68,12 +67,21 @@ public class AmbienteJogo implements Ambiente {
      */
     @Override
     public Evento observar() {
-        System.out.printf("A observar %s", evento);
+        /**
+         * Com intuito de não explodir caso o evento seja null,
+         * ou seja, caso o utilizador introduza uma tecla 
+         * diferente das que estão registadas: (s,r,a,f,o,t)
+         */
+        if(evento != null){
+            evento.mostrar();
+        }else{
+            System.out.printf("Sem evento\n");
+        }
         return evento;
     }
 
     /**
-     * Método para executar o comando sobre o ambiente do
+     * Método para visualizar o comando sobre o ambiente do
      * jogo atual
      */
     @Override
@@ -86,7 +94,7 @@ public class AmbienteJogo implements Ambiente {
      * @return EventoJogo - Evento atual do ambiente do jogo
      */
     private EventoJogo gerarEvento() {
-        System.out.println("\nEvento?");
+        System.out.printf("\nEvento? %s \n", eventos.keySet());
         String textoComando = scanner.next();
         return eventos.get(textoComando);
     }

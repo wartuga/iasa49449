@@ -22,8 +22,8 @@ public interface Ambiente {
     Evento observar();
 
     /**
-     * executar é o método usado para provocar alteração de estado no ambiente.
-     * @param comando - comando a executar sobre o ambiente.
+     * executar é o método usado para visualizar o comando executado sobre o ambiente.
+     * @param comando - comando executado sobre o ambiente.
      */
     void executar(Comando comando);
 }

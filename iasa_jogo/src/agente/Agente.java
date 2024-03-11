@@ -35,10 +35,21 @@ public class Agente {
     }
 
     /**
-     * para a próxima aula
+     * A realização deste método deve-se à concretização de um diagrama de atividade
+     */
+    /**
+     * Método chamado representando o início de uma atividade de processamento com o 
+     * objetivo do agente percecionar adquirindo uma nova Percepcao para o controlo 
+     * deste poder atuar consoante a Acao gerada por esse processamento, encerrando 
+     * a atividade de processamento
      */
     public void executar(){
-
+        /**
+         * simplificação com o uso de variáveis explicativas
+         */
+        Percepcao novaPercepcao = percepcionar();
+        Acao novaAcao = controlo.processar(novaPercepcao);
+        atuar(novaAcao);
     }
 
     /**

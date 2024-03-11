@@ -36,6 +36,12 @@ import jogo.personagem.Personagem;
  * e por fim a direção, pois as relações bi-direcionais contam a dobrar
  */
 /**
+ * Este jogo está dividido em 3 partições, ambiente, agente e controlo.
+ * O ambiente pode observar e evoluir.
+ * O agente pode percepcionar e atuar.
+ * O controlo pode processar.
+ */
+/**
  * Representa o jogo onde uma personagem atua sobre um
  * ambiente gerando um evento
  */
@@ -54,14 +60,21 @@ public class Jogo {
      * @param args
      */
     public static void main(String[] args){
+        /**
+         * Inicialização do ambiente para o jogo
+         */
         ambiente = new AmbienteJogo();
+        /**
+         * Inicialização da personagem para o jogo
+         */
         personagem = new Personagem(ambiente);
         executar();
     }
 
     /**
      * executar é privado pois reduz o acopolamento
-     * e apenas é usado no main do Jogo
+     * e apenas é usado no main do Jogo no âmbito de
+     * iniciar o jogo
      */
     private static void executar() {
         do {
