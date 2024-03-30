@@ -1,5 +1,7 @@
-from sae import Agente
-from ecr.comport_comp import ComportComp
-from agente.controlo_react.controlo_react import ControloReact
+from sae import Simulador
+from agente.agente_reativo import AgenteReativo as Agente
 
-print("teste")
+
+# Executar simulador da SAE
+# recebe um numero e um agente
+Simulador(1, Agente()).executar()

@@ -34,5 +34,5 @@ class ComportComp(Comportamento):
     Método para selecionar uma Acao numa coleção de ações
     """
     @abstractmethod
-    def selecionar_acao(acoes):
+    def selecionar_acao(self, acoes):
         raise NotImplementedError

@@ -1,6 +1,7 @@
 """
 Representa a classe Resposta de uma arquitetura de agentes reativos
-A resposta pode ser mais que uma ação (e.g.) nivel de prioridade
+A resposta é o encapsulamento da acao e pode ser mais que uma ação 
+(e.g.) nivel de prioridade
 Resultado de um estímulo.
 """
 

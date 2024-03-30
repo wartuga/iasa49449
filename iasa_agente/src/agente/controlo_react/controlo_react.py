@@ -12,7 +12,6 @@ class ControloReact(Controlo):
 
     """
     Método para retornar a Acao consoante a Percepcao passada
-
     """
     def processar(self, percepcao):
         """ variável explicativa => maior simplicidade """
