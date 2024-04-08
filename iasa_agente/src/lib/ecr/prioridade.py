@@ -13,7 +13,8 @@ class Prioridade(ComportComp):
     baseado em prioridade, ou seja, a ação com a maior
     prioridade associada
     """
-    def selecionar_acao(acoes):
+    # esquecimento do self da classe
+    def selecionar_acao(self, acoes):
         """
         Para escolher a acao com a maior prioridade,
         pega-se na primeira ação e ao percorrer a 
@@ -26,7 +27,7 @@ class Prioridade(ComportComp):
             Função de seleção da ação, onde escolhe a que tem 
             maior prioridade
             """
-            criterio_selecao = lambda acao: acao.prioriade
+            criterio_selecao = lambda acao: acao.prioridade
             """ variável explicativa """
             acao = max(acoes, key = criterio_selecao)
             return acao

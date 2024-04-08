@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./iasa_agente/src/lib"
+    ]
+}

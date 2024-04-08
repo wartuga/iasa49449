@@ -9,7 +9,6 @@ este gera uma Acao através de uma Percepcao recebida
 É um sub-objetivo de Recolher
 """
 class Explorar(Comportamento):
-
     """
     Método para ativar a exploração, onde uma direcao
     é escolhida aleatoriamente e com isso é devolvida

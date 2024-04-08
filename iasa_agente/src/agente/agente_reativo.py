@@ -16,10 +16,6 @@ class AgenteReativo(Agente):
         """
         controlo = ControloReact(comportamento)
         """
-        Mostra o que o agente está a visualizar na posição atual
-        """
-        controlo.mostrar_per_dir = True
-        """
         injeção de dependência de Controlo
         """
         super().__init__(controlo)

@@ -9,6 +9,11 @@ class ControloReact(Controlo):
     """
     def __init__(self, comportamento):
         self.__comportamento = comportamento
+        """
+        Flag para mostrar o que o agente está a visualizar 
+        na posição atual (informação sensorial)
+        """
+        self.mostrar_per_dir = True
 
     """
     Método para retornar a Acao consoante a Percepcao passada

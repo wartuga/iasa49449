@@ -1,7 +1,10 @@
 from ecr.hierarquia import Hierarquia
-#from agente.controlo_react.reacoes.aproximar.aproximar_alvo import AproximarAlvo
-#from agente.controlo_react.reacoes.evitar.evitar_obst import EvitarObst
+from agente.controlo_react.reacoes.aproximar.aproximar_alvo import AproximarAlvo
+from agente.controlo_react.reacoes.evitar.evitar_obst import EvitarObst
 from agente.controlo_react.reacoes.explorar.explorar import Explorar
+
+#parte do exercício em aula
+#from agente.controlo_react.reacoes.contar_passos.contar_passos import ContarPassos
 
 """
 Existem diferentes mecanismos de combinação e seleção de ações.
@@ -54,6 +57,9 @@ class Recolher(Hierarquia):
     Construtor da classe Recolher
     """
     def __init__(self):
-        """AproximarAlvo(), EvitarObst(),"""
-        comportamentos = [Explorar()]
+        """
+        parte do exercício em aula
+        ContarPassos()
+        """
+        comportamentos = [AproximarAlvo(), EvitarObst(), Explorar()]
         super().__init__(comportamentos)
