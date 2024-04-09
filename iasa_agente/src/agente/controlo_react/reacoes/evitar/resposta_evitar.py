@@ -33,6 +33,11 @@ class RespostaEvitar(RespostaMover):
     Método auxiliar para escolher uma direção livre
     """
     def __direcao_livre(self, percepcao):
+        """
+        simplificação da construção da lista de direções livres
+        dir_livres2 = [direcao for direcao in self.__direcoes 
+                       if not percepcao.contacto_obst(direcao)]
+        """
         dir_livres = []
         for direcao in self.__direcoes:
             if percepcao.contacto_obst(direcao):
