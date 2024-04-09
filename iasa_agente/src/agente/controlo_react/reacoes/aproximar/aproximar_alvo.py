@@ -21,7 +21,7 @@ class AproximarAlvo(Prioridade):
             AproximarDir(Direccao.OESTE)
         ]
         """
-        # alteraçção devido a redundância
+        # alteração devido a redundância
         # motivo: estava a selecionar o comportamento
         # porém o ativar da Prioridade já o faz
         super().__init__(comportamentos)
