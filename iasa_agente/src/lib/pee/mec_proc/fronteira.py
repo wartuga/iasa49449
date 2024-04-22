@@ -7,9 +7,8 @@ class Fronteira:
     """
     Construtor da classe
     """
-    def __init__(self) -> None:
+    def __init__(self):
         self.iniciar()
-        self.__vazia = True
     
     """
     Propriedade vazia de fronteira
@@ -49,5 +48,5 @@ class Fronteira:
     primeiro elemento da estrutura de dados
     """
     def remover(self):
-        if not self.vazia:
+        if self.dimensao > 0:
             return self._nos.pop(0)

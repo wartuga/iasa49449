@@ -1,10 +1,11 @@
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 from pee.mec_proc.no import No
+from pee.mec_proc.solucao import Solucao
 
 """
 Representa o mecanismo de procura de um agente inteligente com memória
 """
-class MecanismoProcura:
+class MecanismoProcura(ABC):
     """
     Construtor da classe
     """

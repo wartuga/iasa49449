@@ -1,5 +1,5 @@
 from pee.mec_proc.passo_solucao import PassoSolucao
-from collections import deque 
+
 """
 Representa a solução de um problema.
 Tem como propriedades o custo total e a dimensão da solução.
@@ -8,30 +8,51 @@ Possui ainda os passos, que é um PassoSolucao para cada nó da soluçáo,
 """ 
 class Solucao:
 
+    """
+    Construtor da classe
+    """
     def __init__(self, no_final):
         self.__custo = no_final.custo
         self.__dimensao = no_final.profundidade
-        # uma doubly ended queue(dequeue) is preferred over a list in this case
-        # since we are walking through the nodes and starting in the last one
-        # with a deque we have a O(1) complexity in append and pop operations
-        # we dont need to do: list.reverse() since we can appendLeft()
-        self.__passos = deque([])
+
+        # complexidade desnecessária
+        # self.__passos = deque([])
+
+        self.__passos = []
         no = no_final
         while no.antecessor:
-            self.__passos.appendleft(PassoSolucao(no.estado, no.operador))
+            """
+            adicionar em passos, o PassoSolução com o estado do nó anterior e o operador do nó atual simbolizando
+            o operador necessário para se passar do estado do nó anterior para o estado do nó atual
+            """
+            self.__passos.insert(0, PassoSolucao(no.antecessor.estado, no.operador))
+            #self.__passos.appendleft(PassoSolucao(no.antecessor.estado, no.operador))
+
             no = no.antecessor
-        self.__passos.appendleft(PassoSolucao(no.estado, no.operador))
     
+    """
+    Propriedade readable do custo da solução
+    """
     @property
-    def custo(self):
+    def custo(self):    
         return self.__custo
     
+    """
+    Propriedade readable da dimensão da solução
+    """
     @property
     def dimensao(self):
         return self.__dimensao
     
+    """
+    Para ser iterável é necessário dar override ao método __iter__ da classe
+    """
     def __iter__(self):
-        iter(self.__passos)
+        return iter(self.__passos)
 
+    """
+    Método para ir buscar um elemento da posição index
+    Estamos a usar a sobrecarga do operador
+    """
     def __getitem__(self, index):
         return self.__passos[index]

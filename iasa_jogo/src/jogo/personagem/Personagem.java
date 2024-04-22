@@ -31,7 +31,7 @@ public class Personagem extends Agente {
 
     /**
      * Construtor de Personagem
-     * @param ambiente - ambiente reebido pela personagem
+     * @param ambiente - ambiente recebido pela personagem
      */
     public Personagem(AmbienteJogo ambiente) {
         super(ambiente, new ControloPersonagem());
