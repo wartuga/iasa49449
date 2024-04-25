@@ -1,0 +1,64 @@
+Eng. Software Intro 3
+
+Diagramas de atividade
+
+Representação de comportamento através do fluxo de controlo, ou seja, através da descrição da sequências de acçoes e condições
+
+Circulo a cheio -> inicio da atividade
+Circulo branco com ponto preto -> fim da atividade
+Losangulo -> condição para bifurcar ou vazio para conjunção
+Retangulo com cantos arredondados representam ações
+Guardas -> condição entre parenteses retos nas setas de um losangulo para Retangulo com cantos arredondados
+
+Decisões/Junções
+	Decisão:
+		bifurcação 
+	Junção:
+		
+	
+Partições de execução
+	Associar um comportamento a determinada parte do sistema
+	(e.g.) 	Prof. cria exame, assist. imprime os testes, student faz o teste
+		Prof. corrige os testes, assist. publica os resultados
+
+Fluxo de Objetos
+	Transferência de informação entre atividades
+	(e.g.) aceitar encomenda gera um pedido e vai para preencher pedido
+
+No nosso caso:
+	percepcionar gera uma Percepcao(input para) processar que gera uma Acao(input para) atuar e termina o processo de execução
+
+saídas <-------------    ----------v
+		transformação	estado
+entradas -----------^    ^---------
+
+Dinamica
+	
+
+Comportamento
+	
+
+Modelo formal de computação
+	
+saídas <------ z ----    ------- q' -------v
+		(y)transformação(del)	estado(Memória de estado)
+entradas ----- s ---^    ^------- q -------
+s € E (entrada)
+z € Z (saida)
+q, q' € Q(estado interno do sitema) (atual, próximo)
+
+	Função de transição de estado (evolução de estado)
+		delta: Q x E -> Q (q x s -> q')
+		  (domínio) (contra domínio)
+
+	Função de saída 
+		lambda: Q x E -> Z (q x s -> z) (outra formulação possivel lambda: Q -> Z)
+
+Eventos
+	E = silencio, ruido, animal, fuga, fotografia, terminar
+Ações
+	Z = procurar, aproximar, observar, fotografar
+Estados
+	Q = procura, inspeçao, observação, registo
+
+um estado que dado um evento, associa uma transição, através de um map

@@ -1,0 +1,80 @@
+metodos de raciocinios automáticos (última aula)
+
+2 tipos de nos
+abertos e fechados
+
+
+valor inicial = 0
+valor final = 9
+operadores = [1, 2]
+
+Problema
+	estado inicial
+	operadores
+	funcao objetivo
+
+estado_contagem -> estado
+operador_incremento -> operador
+problema_contagem -> problema
+
+
+Quanto tempo é necessário?
+Quanta memória é necessária?
+	|
+	v
+Complexidade computacional
+
+	Compexidade temporal
+	Complexidade espacial
+
+Veiculo com navegação autónoma (memória disponível 100MB)
+
+Estado: posição(X, Y) do agente
+
+fator de ramificação => o quanto o passo pode ramificar no máximo (b = 4)
+Profundidade da procura => o número de passos da procura (d = 1)
+
+Procura em largura
+1 + b + b^2 + b^3 + ... + b^d
+Complexidade temporal: O(b^d)
+complexidade espacial: O(b^d)
+solução exponencial
+ótimo? sim
+completo? sim
+
+Procura em profundidade
+
+complexidade temporal: O(b^d)
+complexidade espacial: O(bd)
+solução linear
+ótimo? não
+completo? não
+
+é ótimo se encontrando a solução, é a melhor
+é completo se havendo solução, encontra a solução
+
+Alternativa é a procura em profundidade limitada
+Problema: A profundidade a que se encontra a solução pode não ser conhecida
+
+Descobrimos a profundidade, fazendo a procura aumentando o limite da profundidade
+sucessão de procura em profundidade limitada, aumentando o limite
+
+2º nivel de especializaçao ProcuraProfLim limita a ProcuraProfundidade, restringe a ProcuraProfundidade para explorar até ao limite
+3º nivel de especialização ProcuraProfIter especializa a procuraProfLim iterando a ProcuraProfLim aumentando o nivel de profundidade
+
+Completo? sim
+Ótimo? sim
+Complexidade temporal? 
+Complexidade espacial? 
+
+
+Procura melhor primeiro (best-first)
+Utiliza uma função f de avaliação de cada nó gerado
+f(n) >= 0
+tipicamente f(n) representa uma estimativa do custo da solução através do nó n
+
+A fronteira de exploração é ordenada por odem cescente de f(n) (maior => pior)
+Explora primeiro os melhores percursos
+envolve o custo
+
+vai se alterar o método manter

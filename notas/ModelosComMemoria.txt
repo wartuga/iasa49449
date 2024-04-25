@@ -1,0 +1,43 @@
+por ter memória podemos ter comportamentos de "evitar o passado"
+fazer comportamentos com memória, onde a reação não depende apenas da percepção, mas também da memória
+
+reset------>   | Máquina de Estados | ------> Saídas
+	     ->|     v ^            |   ^
+entradas---->^^      v ^                ^
+	     v^  | Reações |------------^---> Ação
+percepção------> |         |
+
+Vantagens da manutenção de Estado
+
+- ter a capacidade de produzir todo o tipo de comportamento
+- ter evoluçáo de estado ao longo do tempo
+- poder agir devido à ausência de memória
+- suporta situações de falha por meio da exploração de ações não realizadas anteriormente
+- resposta em função das percepções actuais e de memórias de percepções anteriores
+
+Desvantagens da manutenção de Estado
+
+Necessidade de memória (necessidade de mais recursos)
+Necessidade de manter as representações de estado (aumento da complexidade)
+...
+
+Arquitetura de Subsunção
+
+Resultado do comportamento pode ser a entrada de outro comportamento
+
+Camadas superiores controlam as camadas inferiores
+
+Inibição
+	Inibir as entradas
+Supressão
+	Suprimir as saídas
+Reinício 
+	Reset do estado interno
+	
+Desenvolvimento incremental
+Robustas
+Relativamente simples com um problema
+	Facilmente se transforma numa teia (se for muito complexa)
+
+Niveis de competência não mantém memória, os comportamentos sim
+

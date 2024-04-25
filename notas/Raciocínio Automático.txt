@@ -1,0 +1,142 @@
+O sistema reativo é capaz de reagir ao que observa mas não consegue prever o futuro
+
+Um sistema 
+
+
+Guardar a represetação das quais pode se passar ao solucionar o problema,
+uso de memória para o raciocínio automático
+
+O raciocinio automático refere se à capacisa de um sistema computacional resolver de forma automática um problema com base numa representação de conhecimento.
+Tem como entrada uma representação de de conhecimento
+
+Inferência -> Derivar novas opções a partir de novas opções que tenhamos e ...
+
+Exploração de opções
+	Racioncínio prospetivo
+		Antecipação do que pode acontecer
+	Simulação interna do domínio do problema
+		Requer formas de representação interna do domínio do problema
+
+Avaliação de opções
+	Custo
+		Recursos necessários
+	Valor
+		Ganho ou perda, medido por exemplo em termos de utilidade
+
+Dominio concreto
+
+M - mesa ->     A                      --A->                 A
+	        B   C                                    B   C
+                M   M                                    M   M
+		Situação		Ação		Situação
+		   |                     |                 |
+		   |                     |                 |
+		   v                     v                 v
+		Codificar             Codificar         Codificar 
+	[(M, B, A), (M, C)]           mover(A,C)    [(M, B), (M, C, A)]
+
+Dominio Abstrato - Representação
+
+Como representar um problema?
+
+Modelo do problema
+	
+	Representação
+		Estado
+			Reprenta uma situação(configuração) 
+			Identificação única
+		Operador
+			Define uma ação(alteração de estado)			
+
+Estrutura
+	Os estados abstraem os aspetos estruturais de um problema ou sistema
+
+Dinâmica
+	Os operadores abstraem as transformações(dinâmica) que podem ocorrer no estado de um problema ou sistema
+
+Estados
+	Representam configurações(situações) possíveis de um problema
+
+Operadores
+	Representam ações que produzem transformações(transições) de estado
+
+Espaço de Estados
+	Todos os estados possíveis e as suas transições possíveis para o problema
+
+Conceitos principais
+
+Estado
+	Representa uma configuração de um sistema ou problema
+	Identificação única
+
+Operador
+	Representa ação
+	Gera transformação de estado(operador.aplicar: estado -> estado)
+
+Problema
+	Representar o problema como um todos
+		Estado inicial
+		Operadores
+		Objetivos(objetivo: estado -> {T, F})
+
+Mecanismo de Raciocinio
+	Exploração de opções possíveis para encontrar uma solução através de simulação prospetiva, tendo por base uma representação interna do problema
+
+Raciocínio através de procura
+	Problemas de planeamento
+		O mundo total deve originar um grafo, cujos nós representam estados e as arestas representam transições, originando um espaço de estados
+
+// Procura de espaço de estados com adversário (curiosidade)
+
+Algoritmo geral
+	Representação interna do problema
+		
+	Pegar no estado inicial
+	Aplicar um conjunto de operadores => gera um conjunto de estados
+	Verificar se para cada estado sucessor atinge o estado objetivo
+	Senão fazer isso para cada estado sucessor
+
+	Quantos sucessores tem cada estado?
+	Pode existir repetição de estados, gerando ciclos infinitos
+	
+Representação em forma de árvore
+	Árvore de procura
+		Com base em nós, cada nó tem o estado a que se refere, o operador a que gerou o estado e o antecessor, a profundidade do nó e o seu custo(da raiz até ao nó, acumulado dos nós anteriores)
+
+	As folhas são a fronteira de exploração, a azul os nós fechados, pois já foram expandidos
+	
+	A estratégia de controle
+		Em profundidade (lifo)
+			Precisamos da fronteira de exploração(representados como lista)
+			Começa com o nó inicial
+			O próximo nó a ser processado é sempre o primeiro nó da fronteira
+			retirado do inicio, avaliado se é objetivo, inserido no inicio da fronteira, (a fronteira nem sempre aumenta).
+			Se não houver saída de um nó, vai se ao próximo, se a lista de fronteira estiver vazia significa que não há solução.
+			
+			
+		Em largura (fifo)
+			Expandir primeiro os nós mais antigos, os mais recentes para o fim da lista
+			Criar nó inicial
+			Iniciar fronteira com nó inicial
+			
+			
+Procura em grafos com ciclos
+	Estados repetidos na árvore de procura
+		Grafo do espaço de estados apresenta ciclos
+		Múltiplas transições para o mesmo estado
+		Ações correspondentes às transições de estado são reversíveis
+
+	Nós Abertos (Não explorados)
+		Fronteira de exploração
+	Nós Fechados (Explorados)
+		noSuc ~€ Abertos && noSuc ~€ Fechados => inserir noSuc em Abertos
+		noSuc € Abertos
+
+	Memória de nós processados
+		Nós gerados mas não expandidos
+			Abertos		|
+		Nós expandidos		| Explorados
+			Fechados	|
+
+estado
+operador
