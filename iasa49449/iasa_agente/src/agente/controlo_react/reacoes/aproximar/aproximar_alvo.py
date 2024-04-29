@@ -1,5 +1,5 @@
 from ecr.prioridade import Prioridade
-from sae.ambiente.direccao import Direccao
+from sae import Direccao
 from agente.controlo_react.reacoes.aproximar.aproximar_dir import AproximarDir
 
 """

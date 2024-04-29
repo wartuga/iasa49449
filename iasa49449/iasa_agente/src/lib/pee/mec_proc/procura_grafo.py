@@ -1,4 +1,4 @@
-from pee.mec_proc.mecanismo_procura import MecanismoProcura
+from .mecanismo_procura import MecanismoProcura
 
 """
 Representação de uma procura em grafos.

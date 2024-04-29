@@ -1,4 +1,4 @@
-from ecr.comport_comp import ComportComp
+from .comport_comp import ComportComp
 
 """
 Representa o mecanismo de combinação e seleção de ações
@@ -14,20 +14,20 @@ class Prioridade(ComportComp):
     prioridade associada
     """
     # esquecimento do self da classe
-    def selecionar_acao(self, acoes):
+    def selecionar_accao(self, accoes):
         """
-        Para escolher a acao com a maior prioridade,
+        Para escolher a accao com a maior prioridade,
         pega-se na primeira ação e ao percorrer a 
         coleção, caso essa ação tenha uma prioridade
-        maior, atualia-se a acao escolhida para assim
-        retornar a acao com a maior prioridade
+        maior, atualia-se a accao escolhida para assim
+        retornar a accao com a maior prioridade
         """
-        if acoes:
+        if accoes:
             """ 
             Função de seleção da ação, onde escolhe a que tem 
             maior prioridade
             """
-            criterio_selecao = lambda acao: acao.prioridade
+            criterio_selecao = lambda accao: accao.prioridade
             """ variável explicativa """
-            acao = max(acoes, key = criterio_selecao)
-            return acao
+            accao = max(accoes, key = criterio_selecao)
+            return accao

@@ -1,5 +1,4 @@
 from ecr.estimulo import Estimulo
-from sae.ambiente.elemento import Elemento
 
 """
 Representa o estimulo de encontrar um obstaculo numa

@@ -25,13 +25,13 @@ Hibrido - contem o melhor dos dois mundos; objetos explicitos
 """
 
 """
-Representa a Reacao de uma arquitetura de agentes reativos
+Representa a Reaccao de uma arquitetura de agentes reativos
 A reação define uma associação de um estímulo a uma resposta
 Implementa a interface Comportamento
 """
-class Reacao(Comportamento):
+class Reaccao(Comportamento):
     """
-    Construtor de Reacao
+    Construtor de Reaccao
     """
     def __init__(self, estimulo, resposta):
         self.__estimulo = estimulo
@@ -40,11 +40,11 @@ class Reacao(Comportamento):
     """
     Método que verifica a intensidade da Percepcao recebida
     caso esta seja maior que '0' afeta o valor de prioridade
-    da Acao e retorna-a, caso contrário retorna None
+    da Accao e retorna-a, caso contrário retorna None
     """
-    def ativar(self, percepcao):
-        intensidade = self.__estimulo.detetar(percepcao)
+    def activar(self, percepcao):
+        intensidade = self.__estimulo.detectar(percepcao)
         if(intensidade > 0):
             """ variável explicativa => maior simplicidade """
-            acao = self.__resposta.ativar(percepcao, intensidade)
-            return acao
+            accao = self.__resposta.activar(percepcao, intensidade)
+            return accao

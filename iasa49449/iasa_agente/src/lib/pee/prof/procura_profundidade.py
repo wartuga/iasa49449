@@ -1,5 +1,5 @@
 from pee.mec_proc.mecanismo_procura import MecanismoProcura
-from pee.prof.fronteira_lifo import FronteiraLIFO
+from .fronteira_lifo import FronteiraLIFO
 
 """
 Procura em profundidade
@@ -8,6 +8,17 @@ complexidade espacial: O(bd)
 solução linear
 ótimo? não
 completo? não
+"""
+"""
+Após execução de contagem.py usando ProcuraProfundidade
+o resultado apresentado é:
+0 2
+2 2
+4 2
+6 2
+8 2
+Custo da solução:  20
+Dimensão da solução:  5
 """
 """
 Representação de uma procura em profundidade.

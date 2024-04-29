@@ -1,6 +1,6 @@
 package maqest;
 
-import agente.Acao;
+import agente.Accao;
 
 /**
  * Representa uma transição de uma máquina de estados
@@ -13,16 +13,16 @@ public class Transicao {
     /**
      * Guarda a açao consoante o estado sucessor
      */
-    private Acao acao;
+    private Accao accao;
 
     /**
      * Construtor da Transição
      * @param estadoSucessor - define a função delta
-     * @param acao - define a função lambda
+     * @param accao - define a função lambda
      */
-    Transicao(Estado estadoSucessor, Acao acao) {
+    Transicao(Estado estadoSucessor, Accao accao) {
         this.estadoSucessor = estadoSucessor;
-        this.acao = acao;
+        this.accao = accao;
     }
 
     /**
@@ -37,7 +37,7 @@ public class Transicao {
      * método para aceder à ação da transição
      * @return
      */
-    Acao getAcao() {
-        return acao;
+    Accao getAccao() {
+        return accao;
     }
 }

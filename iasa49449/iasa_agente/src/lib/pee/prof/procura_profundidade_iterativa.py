@@ -1,4 +1,4 @@
-from prof.procura_profundidade_limitada import ProcuraProfLim
+from .procura_profundidade_limitada import ProcuraProfLim
 
 """
 Representa a procura em profundidade Iterativa, ou seja,

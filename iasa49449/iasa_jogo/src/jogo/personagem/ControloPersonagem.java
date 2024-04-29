@@ -1,6 +1,6 @@
 package jogo.personagem;
 
-import agente.Acao;
+import agente.Accao;
 import agente.Controlo;
 import agente.Percepcao;
 import ambiente.Evento;
@@ -41,7 +41,7 @@ public class ControloPersonagem implements Controlo {
         /**
          * As entradas deste sistema são os Eventos(Evento):
          * silêncio, ruido, animal, fuga, fotografia, terminar
-         * As saídas são as Ações(Acao):
+         * As saídas são as Ações(Accao):
          * procurar, aproximar, observar, fotografar
          * Os estados são os Estados(Estado):
          * procura, inspeçao, observação, registo
@@ -57,10 +57,10 @@ public class ControloPersonagem implements Controlo {
         /**
          * Instâncias de todas as ações possíveis
          */
-        Acao procurar = new Acao(ComandoJogo.PROCURAR);
-        Acao aproximar = new Acao(ComandoJogo.APROXIMAR);
-        Acao observar = new Acao(ComandoJogo.OBSERVAR);
-        Acao fotografar = new Acao(ComandoJogo.FOTOGRAFAR);
+        Accao procurar = new Accao(ComandoJogo.PROCURAR);
+        Accao aproximar = new Accao(ComandoJogo.APROXIMAR);
+        Accao observar = new Accao(ComandoJogo.OBSERVAR);
+        Accao fotografar = new Accao(ComandoJogo.FOTOGRAFAR);
 
         /**
          * Carregamento de todas as possíveis transições para cada estado
@@ -89,20 +89,20 @@ public class ControloPersonagem implements Controlo {
     }
 
     /**
-     * Permite a personagem escolher a Acao segundo a Percepcao recebida
-     * @return Acao
+     * Permite a personagem escolher a Accao segundo a Percepcao recebida
+     * @return Accao
      */
-    public Acao processar(Percepcao percepcao) {
+    public Accao processar(Percepcao percepcao) {
         /**
          * Adquire-se o evento através da Percepcao recebida
          */
         Evento evento = percepcao.getEvento();
         /**
-         * A Acao é resultado da máquina de estados processar o evento atual
+         * A Accao é resultado da máquina de estados processar o evento atual
          */
-        Acao acao = maqEst.processar(evento);
+        Accao accao = maqEst.processar(evento);
         mostrar();
-        return acao;
+        return accao;
     }
 
     /**

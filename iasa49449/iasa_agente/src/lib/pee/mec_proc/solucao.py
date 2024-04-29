@@ -1,4 +1,4 @@
-from pee.mec_proc.passo_solucao import PassoSolucao
+from .passo_solucao import PassoSolucao
 
 """
 Representa a solução de um problema.

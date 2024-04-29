@@ -3,7 +3,7 @@ encontpackage maqest;
 import java.util.HashMap;
 import java.util.Map;
 
-import agente.Acao;
+import agente.Accao;
 import ambiente.Evento;
 
 /**
@@ -67,8 +67,8 @@ public class Estado {
      * @param estadoSucessor
      * @return Estado - estado atual
      */
-    public Estado transicao(Evento evento, Estado estadoSucessor, Acao acao) {
-        transicoes.put(evento, new Transicao(estadoSucessor, acao));
+    public Estado transicao(Evento evento, Estado estadoSucessor, Accao accao) {
+        transicoes.put(evento, new Transicao(estadoSucessor, accao));
         return this;
     }
 }

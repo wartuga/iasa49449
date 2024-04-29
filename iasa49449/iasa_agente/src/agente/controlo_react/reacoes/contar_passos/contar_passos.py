@@ -1,5 +1,5 @@
 from ecr.comportamento import Comportamento
-from sae.ambiente.direccao import Direccao
+from sae import Direccao
 from ..resposta.resposta_mover import RespostaMover
 
 """

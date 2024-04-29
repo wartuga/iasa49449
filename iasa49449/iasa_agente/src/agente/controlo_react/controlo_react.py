@@ -1,7 +1,9 @@
 from sae import Controlo
 
 """
-Representa o controlo reativo do agente
+Representa o controlo reativo do agente. Neste projeto
+o controlo consiste em receber uma percepção tem a reação
+e após o seu processamento, gera uma ação.
 """
 class ControloReact(Controlo):
     """
@@ -16,9 +18,9 @@ class ControloReact(Controlo):
         self.mostrar_per_dir = True
 
     """
-    Método para retornar a Acao consoante a Percepcao passada
+    Método para retornar a Accao consoante a Percepcao recebida
     """
     def processar(self, percepcao):
         """ variável explicativa => maior simplicidade """
-        acao = self.__comportamento.ativar(percepcao)
-        return acao
+        accao = self.__comportamento.activar(percepcao)
+        return accao

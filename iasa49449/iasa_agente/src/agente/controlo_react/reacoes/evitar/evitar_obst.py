@@ -1,7 +1,7 @@
 from ecr.hierarquia import Hierarquia
 from agente.controlo_react.reacoes.evitar.resposta_evitar import RespostaEvitar
 from agente.controlo_react.reacoes.evitar.evitar_dir import EvitarDir
-from sae.ambiente.direccao import Direccao
+from sae import Direccao
 
 """
 Por possuir memória podemos ter comportamentos como o de "evitar o passado"

@@ -9,7 +9,7 @@ uma resposta através de associação
 class Estimulo(ABC):
 
     @abstractmethod
-    def detetar(self, percepcao) -> float:
+    def detectar(self, percepcao) -> float:
         """
         Método da interface Estimulo
         Recebe uma `Percepcao` e retorna um `float`

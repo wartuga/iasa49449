@@ -16,23 +16,22 @@ class ComportComp(Comportamento):
         self.__comportamentos = comportamentos
 
     """
-    Método para ativar todos os comportamentos que se ativam
-    devido à Percepcao recebida e retorna uma acao
+    Método para activar todos os comportamentos que se ativam
+    devido à Percepcao recebida e retorna uma accao
     """
-    def ativar(self, percepcao):
-        acoes = []
+    def activar(self, percepcao):
+        accoes = []
         for comportamento in self.__comportamentos:
-            acao = comportamento.ativar(percepcao)
-            if acao:
-                acoes.append(acao)
-        if acoes:
+            accao = comportamento.activar(percepcao)
+            if accao:
+                accoes.append(accao)
+        if accoes:
             """ variável explicativa => aumenta a simplicidade """
-            acao = self.selecionar_acao(acoes)
-            return acao
+            accao = self.selecionar_accao(accoes)
+            return accao
     
-    """
-    Método para selecionar uma Acao numa coleção de ações
-    """
     @abstractmethod
-    def selecionar_acao(self, acoes):
-        raise NotImplementedError
+    def selecionar_accao(self, accoes):
+        """
+        Método para selecionar uma Accao numa coleção de ações
+        """

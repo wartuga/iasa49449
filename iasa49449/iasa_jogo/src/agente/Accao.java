@@ -3,19 +3,19 @@ package agente;
 import ambiente.Comando;
 
 /**
- * Acao representa a ação a ser efetuada pelo agente.
+ * Accao representa a ação a ser efetuada pelo agente.
  */
-public class Acao {
+public class Accao {
     /**
      * comando é o comando a ser executado pelo agente sobre o ambiente.
      */
     private Comando comando;
 
     /**
-     * Contrutor público de Acao
-     * @param comando - comando a ser armazenado na Acao criada.
+     * Contrutor público de Accao
+     * @param comando - comando a ser armazenado na Accao criada.
      */
-    public Acao(Comando comando){
+    public Accao(Comando comando){
         this.comando = comando;
     }
 

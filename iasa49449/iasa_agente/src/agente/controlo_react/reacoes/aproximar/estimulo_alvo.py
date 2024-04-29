@@ -1,4 +1,4 @@
-from sae.ambiente.elemento import Elemento
+from sae import Elemento
 from ecr.estimulo import Estimulo
 
 """

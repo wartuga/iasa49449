@@ -1,0 +1,77 @@
+ativar
+detetar
+acao
+
+métodos de raciocinios automáticos
+
+Procura melhor primeiro
+
+f - função que avalia o nó com essa medidade de desempenho, dar prioridade aos melhores nós
+há um custo até ao nó, denomenado de g
+g(n) => custo do percurso até ao nó n
+
+procura de custo uniforme -> f(n) = g(n)
+minimização de custo acumulado até ao nó final
+
+
+estratégia de costrolo
+	explorar primeiro os nós com menor custo
+		fronteira ordenada por custo associado a cada nó
+		o primeiro é o melhor, logo é o que expandimos
+		e.g. de representação de um nó "1:5" representa o nó 1 com custo 5
+		:)
+
+consegue-se diminuir tempo com o aumento de complexidade (qualidade espaço-tempo)
+se tivermos uma estrutura de dados que já tem o que necessitamos em vez de uma lista
+
+priorityQueue - utilização como lista, implementação interna como árvores
+
+lib heapq
+metodos
+heappush(heap, item)
+heappop(heap)
+
+Uma relação de ordem é uma operação matemática que calcula a ...
+
+Vamos usar túpulos pois a sua relação natural é a ordem pela qual aparecem nos parâmetros, ou seja, em vez de receber os nós diretos, recebe o custo e o nó
+
+tem uma consequência, 
+
+no override da fronteiraPrioridade, para o interior são túpulos, para o exterior têm de ser nós
+
+2 tipos de procuras
+	nao informadas
+		as que estudamos ate agr, profundidade, largura, etc
+	
+	informadas
+		procura de exploração seletiva do espaço de estados
+
+funções heuristicas h(n)
+	Possibilitam cálculos efetivos e por isso imprecisas (são estimativas rápidas mas possivelmente sem solução) não são robustas(não garantem soluções)
+
+	Temos a função de custo e a heurística 
+	Novo método de procura
+		Procura sôfrega (greedy search)
+			Diferente da procura de custo uniforme (não informada)
+			Solução sub-ótima
+			menor complexidade computacional
+			informada
+			é exponencialmente mais eficiente que a procura de custo uniforme
+		
+		Procura A* (heurística admissível) h*(n) = h(n) + g(n)
+			Minimização de custo global
+			para poder ser ótima tem de ter uma heurística admissível(otimista)
+				A estimativa de custo é sempre inferior ou igual ao custo efetivo mínimo
+			Variante de procura melhor primeiro
+			Garante uma solução ótima com a melhor eficiência computacional
+			Não é tão seletiva como a procura sôfrega mas é mais eficiente que a pesquisa uniforme
+			0 <= h(n) <= h*(n)
+			distância euclidiana é uma heurística admissível
+			distância de manhattan apenas é admissível se não forem possíveis movimentos diagonais, caso contrário não é
+
+		Para defenir uma heuristica admissivel
+			Precisamos de eliminar restrições do problema
+			e.g. não movimentação através de obstáculos
+
+		
+			

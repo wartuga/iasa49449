@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
-from pee.mec_proc.no import No
-from pee.mec_proc.solucao import Solucao
+from .no import No
+from .solucao import Solucao
 
 """
 Representa o mecanismo de procura de um agente inteligente com memória
@@ -18,12 +18,11 @@ class MecanismoProcura(ABC):
     def _iniciar_memoria(self):
         return self._fronteira.iniciar()
     
-    """
-    Método para adicionar o no à coleção de nós explorados
-    """
     @abstractmethod
     def _memorizar(self, no):
-        raise NotImplementedError
+        """
+        Método para adicionar o no à coleção de nós explorados
+        """
     
     """
     É o núcleo deste mecanismo, retorna a soluçáo caso esta exista
@@ -78,7 +77,7 @@ class MecanismoProcura(ABC):
             estado_suc = operador.aplicar(estado)
 
             # caso haja estado no nó sucessor faz-se o tratamento
-            if estado_suc is not None:
+            if estado_suc:
 
                 # é calculado o custo desse nó
                 custo = no.custo + operador.custo(estado, estado_suc)

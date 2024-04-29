@@ -1,6 +1,6 @@
 package maqest;
 
-import agente.Acao;
+import agente.Accao;
 import ambiente.Evento;
 
 /**
@@ -32,9 +32,9 @@ public class MaquinaEstados {
     /**
      * Método para processar um Evento e gerar uma Acao
      * @param evento
-     * @return Acao
+     * @return Accao
      */
-    public Acao processar(Evento evento) {
+    public Accao processar(Evento evento) {
         /**
          * Produz uma transação através do estado atual processar o evento recebido
          */
@@ -48,7 +48,7 @@ public class MaquinaEstados {
              * Acao presente na Transicao
              * Variável explicativa
              */
-            Acao acao = transicao.getAcao();
+            Accao accao = transicao.getAccao();
             return acao;
         }else{
             return null;

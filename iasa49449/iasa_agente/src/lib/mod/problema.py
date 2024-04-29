@@ -28,10 +28,9 @@ class Problema(ABC):
     def operadores(self):
         return self.__operadores
 
-    """
-    Método abstrato objetivo para ser implementado
-    consoante o problema em questão
-    """
     @abstractmethod
     def objetivo(self, estado):
-        raise NotImplementedError
+        """
+        Método abstrato objetivo para ser implementado
+        consoante o problema em questão
+        """

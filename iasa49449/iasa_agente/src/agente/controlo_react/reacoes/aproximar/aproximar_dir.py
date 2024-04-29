@@ -1,6 +1,6 @@
 from ..resposta.resposta_mover import RespostaMover
 from agente.controlo_react.reacoes.aproximar.estimulo_alvo import EstimuloAlvo
-from ecr.reacao import Reacao
+from ecr.reaccao import Reacao
 
 """
 Representa a Reacao para a direcao que o agente 

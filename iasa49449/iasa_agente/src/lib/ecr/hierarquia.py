@@ -1,4 +1,4 @@
-from ecr.comport_comp import ComportComp
+from .comport_comp import ComportComp
 
 """
 Representa o mecanismo de combinação e seleção de ações
@@ -14,9 +14,9 @@ class Hierarquia(ComportComp):
     baseado em hierarquia
     Recebe uma coleção de ações onde já se encontram ordenadas
     """
-    def selecionar_acao(self, acoes):
-        if(acoes):
+    def selecionar_accao(self, accoes):
+        if(accoes):
             """ variável explicativa """
-            acao = acoes[0]
-            """ retorna a acao selecionada """
-            return acao
+            accao = accoes[0]
+            """ retorna a accao selecionada """
+            return accao

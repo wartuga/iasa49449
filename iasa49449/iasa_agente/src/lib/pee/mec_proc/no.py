@@ -52,3 +52,11 @@ class No:
     @property
     def custo(self):
         return self.__custo
+    
+    """
+    Necessário para ser possível existir uma
+    possível comparação entre duas instâncias
+    de No sendo este necessário na ProcuraCustoUnif
+    """
+    def __lt__(self, no):
+        return self.custo < no.custo

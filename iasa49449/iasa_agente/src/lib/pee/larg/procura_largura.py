@@ -1,5 +1,5 @@
 from pee.mec_proc.procura_grafo import ProcuraGrafo
-from pee.larg.fronteira_fifo import FronteiraFIFO
+from .fronteira_fifo import FronteiraFIFO
 
 """
 Procura em largura
@@ -9,6 +9,17 @@ complexidade espacial: O(b^d)
 solução exponencial
 ótimo? sim
 completo? sim
+"""
+"""
+Após execução de contagem.py usando ProcuraLargura
+o resultado apresentado é:
+0 1
+1 2
+3 2
+5 2
+7 2
+Custo da solução:  17
+Dimensão da solução:  5
 """
 """
 Representação de uma procura em profundidade.

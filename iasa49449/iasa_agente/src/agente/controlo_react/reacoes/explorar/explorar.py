@@ -1,6 +1,6 @@
 from ecr.comportamento import Comportamento
 from random import choice
-from sae.ambiente.direccao import Direccao
+from sae import Direccao
 from ..resposta.resposta_mover import RespostaMover
 
 """
@@ -16,15 +16,15 @@ class Explorar(Comportamento):
     percepcao recebida como parametro
     """
     def ativar(self, percepcao):
-        direcao = self.__direcao_aleatoria()
-        resposta = RespostaMover(direcao)
-        return resposta.ativar(percepcao)
+        direccao = self.__direccao_aleatoria()
+        resposta = RespostaMover(direccao)
+        return resposta.activar(percepcao)
         
     """
     Método auxiliar para escolher uma direcao aleatória
     Private pois apenas é usada por um método da classe
     e não permite ser chamado pelo exterior
     """
-    def __direcao_aleatoria(self):
-        direcoes = list(Direccao)
-        return choice(direcoes)
+    def __direccao_aleatoria(self):
+        direccoes = list(Direccao)
+        return choice(direccoes)

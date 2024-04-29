@@ -1,4 +1,5 @@
 from pee.mec_proc.procura_grafo import ProcuraGrafo
+from.fronteira_prioridade import FronteiraPrioridade
 
 """
 Procura melhor primeiro (best-first)
@@ -24,8 +25,10 @@ class ProcuraMelhorPrim(ProcuraGrafo):
     """
     Construção da classe
     """
-    def __init__(self):
-        raise NotImplementedError
+    def __init__(self, avaliador):
+        self._avaliador = avaliador
+        fronteira = FronteiraPrioridade(avaliador)
+        super().__init__(fronteira)
 
     """
     Alteração do método manter, adicionando o

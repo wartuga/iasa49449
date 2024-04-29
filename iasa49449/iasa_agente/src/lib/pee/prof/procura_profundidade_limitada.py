@@ -1,4 +1,4 @@
-from pee.prof.procura_profundidade import ProcuraProfundidade
+from .procura_profundidade import ProcuraProfundidade
 
 """
 é ótimo se encontrando a solução, é a melhor
@@ -16,6 +16,17 @@ Completo? sim
 Ótimo? apenas se o nivel de profundidade for igual ao
 nivel de profundidade da solução ou o ramo da solução seja
 o primeiro a ser percorrido
+"""
+"""
+Após execução de contagem.py usando ProcuraProfLim
+o resultado apresentado é:
+0 2
+2 2
+4 2
+6 2
+8 2
+Custo da solução:  20
+Dimensão da solução:  5
 """
 """
 Representação da procura em profundidade limitada

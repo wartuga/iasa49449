@@ -1,7 +1,7 @@
 package agente;
 
 /**
- * Controlo representa a parte do agente na qual é processada a percepção para o agente atuar.
+ * Controlo representa a parte do agente na qual é processada a percepção para o agente actuar.
  */
 public interface Controlo {
     /**

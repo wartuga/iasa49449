@@ -27,7 +27,7 @@ public class Agente {
     /**
      * Construtor da classe Agente.
      * @param ambiente - ambiente a ser percepcionado pelo agente.
-     * @param controlo - parte do agente na qual é processada a percepção para o agente atuar.
+     * @param controlo - parte do agente na qual é processada a percepção para o agente actuar.
      */
     public Agente(Ambiente ambiente, Controlo controlo){
         this.ambiente = ambiente;
@@ -40,7 +40,7 @@ public class Agente {
     /**
      * Método chamado representando o início de uma atividade de processamento com o 
      * objetivo do agente percecionar adquirindo uma nova Percepcao para o controlo 
-     * deste poder atuar consoante a Acao gerada por esse processamento, encerrando 
+     * deste poder actuar consoante a Acao gerada por esse processamento, encerrando 
      * a atividade de processamento
      */
     public void executar(){
@@ -49,7 +49,7 @@ public class Agente {
          */
         Percepcao novaPercepcao = percepcionar();
         Acao novaAcao = controlo.processar(novaPercepcao);
-        atuar(novaAcao);
+        actuar(novaAcao);
     }
 
     /**
@@ -63,10 +63,10 @@ public class Agente {
     }
 
     /**
-     * atuar é o método para o agente executar um comando com base na ação recebida.
+     * actuar é o método para o agente executar um comando com base na ação recebida.
      * @param acao - contém o comando a ser executado pelo agente no ambiente.
      */
-    protected void atuar(Acao acao){
+    protected void actuar(Acao acao){
         if(acao != null){
             // variável explicativa
             Comando comando = acao.getComando();

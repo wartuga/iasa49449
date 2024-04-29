@@ -3,7 +3,10 @@ from .controlo_react.controlo_react import ControloReact
 from .controlo_react.reacoes.recolher import Recolher
 
 """
-Representa um agente reativo, uma possível extensão de Agente
+Representa um agente reativo, uma possível extensão de Agente.
+Este agente terá o comportamento complexo recolher e o seu 
+controlo será uma instância de ControloReact recebendo esse 
+mesmo comportamento.
 """
 class AgenteReativo(Agente):
     def __init__(self):

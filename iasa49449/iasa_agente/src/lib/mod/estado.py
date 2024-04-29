@@ -18,10 +18,10 @@ class Estado(ABC):
     def __eq__(self, value):
         if(isinstance(value, Estado)):
             return self.__hash__() == value.__hash__()
-    """
-    Método a ser implementado para um domínio concreto.
-    Retorna o id do estado.
-    """
+    
     @abstractmethod
     def id_value(self):
-        raise NotImplementedError
+        """
+        Método a ser implementado para um domínio concreto.
+        Retorna o id do estado.
+        """

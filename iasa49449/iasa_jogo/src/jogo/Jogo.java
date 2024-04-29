@@ -38,7 +38,7 @@ import jogo.personagem.Personagem;
 /**
  * Este jogo está dividido em 3 partições, ambiente, agente e controlo.
  * O ambiente pode observar e evoluir.
- * O agente pode percepcionar e atuar.
+ * O agente pode percepcionar e actuar.
  * O controlo pode processar.
  */
 /**
