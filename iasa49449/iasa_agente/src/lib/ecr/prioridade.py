@@ -19,7 +19,7 @@ class Prioridade(ComportComp):
         Para escolher a accao com a maior prioridade,
         pega-se na primeira ação e ao percorrer a 
         coleção, caso essa ação tenha uma prioridade
-        maior, atualia-se a accao escolhida para assim
+        maior, atualiza-se a accao escolhida para assim
         retornar a accao com a maior prioridade
         """
         if accoes:

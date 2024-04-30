@@ -7,7 +7,7 @@ import jogo.ambiente.AmbienteJogo;
  * Encontra-se uma generalização de Agente em Personagem
  * Uma vez que não acrescenta nada em termos de propriedades
  * ou métodos, podemos dizer que é uma fatorização por herança
- * onde Personahem é Agente num contexto de um Jogo
+ * onde Personagem é Agente num contexto de um Jogo
  * Isto provoca um alto acopolamento e fatorização estrutural
  */
 /**
@@ -16,7 +16,7 @@ import jogo.ambiente.AmbienteJogo;
  * Este acopolamento pode variar dinamicamente
  */
 /**
- * Ambas contribuiem para a decomposição ainda que de formas diferentes
+ * Ambas contribuem para a decomposição ainda que de formas diferentes
  * Existe ainda outro ponto da modularização que é o encapsulamento
  * que consiste em fechar o interior do módulo, ou seja, isolar os
  * detalhes internos das partes de um sistema em relação ao exterior

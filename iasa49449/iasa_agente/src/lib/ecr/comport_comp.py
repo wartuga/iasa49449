@@ -2,9 +2,9 @@ from .comportamento import Comportamento
 from abc import abstractmethod
 
 """
-Representa o commportamento complexo de uma arquitetura de agentes reativos.
+Representa o comportamento complexo de uma arquitetura de agentes reativos.
 Implementa Comportamento.
-Um comportamente composto pode ser composto por comportamentos simples ou 
+Um comportamento composto pode ser composto por comportamentos simples ou 
 por outros comportamentos complexos.
 """
 class ComportComp(Comportamento):

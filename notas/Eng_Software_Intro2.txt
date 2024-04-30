@@ -85,6 +85,6 @@ Processo de Desenvolvimento de Software
 		Comportamental
 			Só após ter a estrutura fazer código comportamental
 
-			O comportamento é como as partes de comportam ao longo do tempo
+			O comportamento é como as partes se comportam ao longo do tempo
 
 	

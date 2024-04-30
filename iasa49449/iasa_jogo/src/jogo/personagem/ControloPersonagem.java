@@ -35,7 +35,7 @@ public class ControloPersonagem implements Controlo {
         /**
          * É possível representar o comportamento através de um fluxo de controlo
          * Partições de execução - Associar um comportamento a determinada parte do sistema
-         * Neste caso o comportamente é representado através de uma Transicao e as partes 
+         * Neste caso o comportamento é representado através de uma Transicao e as partes 
          * são representadas por Estado
          */
         /**
