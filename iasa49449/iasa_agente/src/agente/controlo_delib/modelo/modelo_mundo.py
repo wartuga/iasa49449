@@ -33,7 +33,6 @@ class ModeloMundo:
         self.__estados = []
         self.__elementos = {}
         self.__operadores = []
-        self.__percepcao = None
 
     """
     Obtém o estado do agente
