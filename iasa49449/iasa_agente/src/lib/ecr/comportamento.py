@@ -8,7 +8,7 @@ Existem dois tipos de comportamento:
 """
 class Comportamento(ABC):
     @abstractmethod
-    def activar(percepcao):
+    def activar(self, percepcao):
         """
         Método da interface Comportamento
         Recebe uma Percepcao

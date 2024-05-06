@@ -2,7 +2,7 @@ from pee.mec_proc.fronteira import Fronteira
 from heapq import heappop, heappush
 
 """
-estratégia de costrolo
+estratégia de controlo
 	explorar primeiro os nós com menor custo
 		fronteira ordenada por custo associado a cada nó
 		o primeiro é o melhor, logo é o que expandimos

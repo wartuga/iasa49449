@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 """
-Representação de um estado.
+Representação de um estado na modelação de um problema.
 """
 class Estado(ABC):
     """
@@ -16,7 +16,7 @@ class Estado(ABC):
     entre 2 instâncias de Estado
     """
     def __eq__(self, value):
-        if(isinstance(value, Estado)):
+        if isinstance(value, Estado):
             return self.__hash__() == value.__hash__()
     
     @abstractmethod

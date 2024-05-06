@@ -13,7 +13,7 @@ class EstimuloObst(Estimulo):
     Caso esteja em contacto com um obstáculo, retorna
     a sua intensidade, caso contrário retorna 0
     """
-    def detetar(self, percepcao):
+    def detectar(self, percepcao):
         if percepcao.contacto_obst(self.__direcao):
             intensidade = self.__intensidade
         else:

@@ -21,7 +21,7 @@ class EstimuloAlvo(Estimulo):
     que é a inversa da distancia (gama^dist)
     caso contrário, a prioridade retornada é 0
     """
-    def detetar(self, percepcao):
+    def detectar(self, percepcao):
         (elemento, distancia, _) = percepcao[self.__direcao]
         if elemento == Elemento.ALVO:
             intensidade = self.__gama**distancia

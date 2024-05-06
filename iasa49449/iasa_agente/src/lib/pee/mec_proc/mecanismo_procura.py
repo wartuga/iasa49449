@@ -9,7 +9,7 @@ class MecanismoProcura(ABC):
     """
     Construtor da classe
     """
-    def __init__(self, fronteira) -> None:
+    def __init__(self, fronteira):
         self._fronteira = fronteira
 
     """

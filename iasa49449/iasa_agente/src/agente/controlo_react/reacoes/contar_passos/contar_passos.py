@@ -12,15 +12,15 @@ class ContarPassos(Comportamento):
     """
     def __init__(self):
         self.__direcao = RespostaMover(Direccao.NORTE)
-        self.__counter = 0
+        self.__passos = 0
 
     """
     recebe a percepcao, incrementando o número de
     passos e caso seja maior ou igual a 10
     o agente toma a acao de apenas se mover para NORTE
     """
-    def ativar(self, percepcao):
-        self.__counter += 1
-        if self.__counter >= 10:
+    def activar(self, percepcao):
+        self.__passos += 1
+        if self.__passos >= 10:
             resposta = self.__direcao
-            return resposta.ativar(percepcao)
+            return resposta.activar(percepcao)

@@ -27,7 +27,7 @@ class RespostaEvitar(RespostaMover):
             else:
                 return None
             
-        return super().ativar(percepcao, intensidade)
+        return super().activar(percepcao, intensidade)
 
     """
     Método auxiliar para escolher uma direção livre

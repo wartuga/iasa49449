@@ -11,7 +11,7 @@ class ProcuraGrafo(MecanismoProcura):
     que este não é abstrato
     """
     def _iniciar_memoria(self):
-        super().__init__(self._fronteira)
+        super()._iniciar_memoria()
         self._explorados = {}
     
     """

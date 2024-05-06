@@ -44,7 +44,7 @@ class Reaccao(Comportamento):
     """
     def activar(self, percepcao):
         intensidade = self.__estimulo.detectar(percepcao)
-        if(intensidade > 0):
+        if intensidade > 0:
             """ variável explicativa => maior simplicidade """
             accao = self.__resposta.activar(percepcao, intensidade)
             return accao

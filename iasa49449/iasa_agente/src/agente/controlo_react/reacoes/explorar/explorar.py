@@ -10,12 +10,12 @@ este gera uma Acao através de uma Percepcao recebida
 """
 class Explorar(Comportamento):
     """
-    Método para ativar a exploração, onde uma direcao
+    Método para activar a exploração, onde uma direcao
     é escolhida aleatoriamente e com isso é devolvida
     uma acao com essa direcao, esta ativada pela 
     percepcao recebida como parametro
     """
-    def ativar(self, percepcao):
+    def activar(self, percepcao):
         direccao = self.__direccao_aleatoria()
         resposta = RespostaMover(direccao)
         return resposta.activar(percepcao)

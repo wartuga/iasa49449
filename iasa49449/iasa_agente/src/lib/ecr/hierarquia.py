@@ -15,7 +15,7 @@ class Hierarquia(ComportComp):
     Recebe uma coleção de ações onde já se encontram ordenadas
     """
     def selecionar_accao(self, accoes):
-        if(accoes):
+        if accoes:
             """ variável explicativa """
             accao = accoes[0]
             """ retorna a accao selecionada """

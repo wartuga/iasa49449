@@ -1,9 +1,9 @@
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
 """
 Representação da fronteira da árvore
 """
-class Fronteira:
+class Fronteira(ABC):
     """
     Construtor da classe
     """
@@ -35,13 +35,12 @@ class Fronteira:
     def iniciar(self):
         self._nos = list()
     
-    """
-    Método abstrato para realizar a 
-    inserção na estrutura de dados
-    """
     @abstractmethod
     def inserir(self, no):
-        raise NotImplementedError
+        """
+        Método abstrato para realizar a 
+        inserção na estrutura de dados
+        """
     
     """
     Método para realizar a remoção do
