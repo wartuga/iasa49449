@@ -9,8 +9,8 @@ class EstimuloAlvo(Estimulo):
     """
     Construtor da classe EstimuloAlvo
     """
-    def __init__(self, direcao, gama = 0.9):
-        self.__direcao = direcao
+    def __init__(self, direccao, gama = 0.9):
+        self.__direccao = direccao
         self.__gama = gama
 
     """
@@ -22,7 +22,7 @@ class EstimuloAlvo(Estimulo):
     caso contrário, a prioridade retornada é 0
     """
     def detectar(self, percepcao):
-        (elemento, distancia, _) = percepcao[self.__direcao]
+        (elemento, distancia, _) = percepcao[self.__direccao]
         if elemento == Elemento.ALVO:
             intensidade = self.__gama**distancia
         else:

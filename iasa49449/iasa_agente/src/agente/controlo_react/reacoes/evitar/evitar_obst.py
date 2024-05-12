@@ -55,6 +55,6 @@ class EvitarObst(Hierarquia):
         redução de complexidade ao construir a lista com as direções possíveis
         pois teria de se construir algum tipo de coleção para iterar sobre as direções
         """
-        comportamentos = [EvitarDir(direcao, self.__resposta) for direcao in list(Direccao)]
+        comportamentos = [EvitarDir(direccao, self.__resposta) for direccao in list(Direccao)]
 
         super().__init__(comportamentos)

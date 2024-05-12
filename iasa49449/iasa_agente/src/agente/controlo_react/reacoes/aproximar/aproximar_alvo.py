@@ -12,7 +12,7 @@ class AproximarAlvo(Prioridade):
     """
     def __init__(self):
         # simplificação de código
-        comportamentos = [AproximarDir(direcao) for direcao in Direccao]
+        comportamentos = [AproximarDir(direccao) for direccao in Direccao]
         """
         comportamentos = [
             AproximarDir(Direccao.NORTE), 

@@ -48,8 +48,8 @@ public class Agente {
          * simplificação com o uso de variáveis explicativas
          */
         Percepcao novaPercepcao = percepcionar();
-        Acao novaAcao = controlo.processar(novaPercepcao);
-        actuar(novaAcao);
+        Accao novaAccao = controlo.processar(novaPercepcao);
+        actuar(novaAccao);
     }
 
     /**
@@ -64,12 +64,12 @@ public class Agente {
 
     /**
      * actuar é o método para o agente executar um comando com base na ação recebida.
-     * @param acao - contém o comando a ser executado pelo agente no ambiente.
+     * @param accao - contém o comando a ser executado pelo agente no ambiente.
      */
-    protected void actuar(Acao acao){
-        if(acao != null){
+    protected void actuar(Accao accao){
+        if(accao != null){
             // variável explicativa
-            Comando comando = acao.getComando();
+            Comando comando = accao.getComando();
             ambiente.executar(comando);
         }
     }

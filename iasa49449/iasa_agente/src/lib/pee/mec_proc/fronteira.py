@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 """
 Representação da fronteira da árvore
+// TODO: adcionar documentação teórica
 """
 class Fronteira(ABC):
     """
@@ -33,7 +34,7 @@ class Fronteira(ABC):
     Método para iniciar a fronteira
     """
     def iniciar(self):
-        self._nos = list()
+        self._nos = []
     
     @abstractmethod
     def inserir(self, no):

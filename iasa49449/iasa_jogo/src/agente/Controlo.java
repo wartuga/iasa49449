@@ -7,7 +7,7 @@ public interface Controlo {
     /**
      * processar é o método para retornar uma Acao consoante a Percepcao recebida.
      * @param percepcao - observação do ambiente.
-     * @return Acao
+     * @return Accao
      */
-    Acao processar(Percepcao percepcao);
+    Accao processar(Percepcao percepcao);
 }

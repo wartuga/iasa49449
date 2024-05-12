@@ -4,6 +4,7 @@ from .solucao import Solucao
 
 """
 Representa o mecanismo de procura de um agente inteligente com memória
+// TODO: adcionar documentação teórica
 """
 class MecanismoProcura(ABC):
     """
@@ -16,7 +17,7 @@ class MecanismoProcura(ABC):
     Método auxiliar à construção da estrutura de dados
     """
     def _iniciar_memoria(self):
-        return self._fronteira.iniciar()
+        self._fronteira.iniciar()
     
     @abstractmethod
     def _memorizar(self, no):
@@ -65,7 +66,7 @@ class MecanismoProcura(ABC):
     """
     def _expandir(self, problema, no):
         # Inicialize-se a coleção vazia
-        sucessores = list()
+        sucessores = []
 
         # guarda-se o estado do nó
         estado = no.estado

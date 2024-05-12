@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 """
 Representação de um estado na modelação de um problema.
+// TODO: adcionar documentação teórica
 """
 class Estado(ABC):
     """

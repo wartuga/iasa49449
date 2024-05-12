@@ -49,7 +49,7 @@ public class MaquinaEstados {
              * Variável explicativa
              */
             Accao accao = transicao.getAccao();
-            return acao;
+            return accao;
         }else{
             return null;
         }

@@ -11,8 +11,8 @@ class ContarPassos(Comportamento):
     Construtor da classe
     """
     def __init__(self):
-        self.__direcao = RespostaMover(Direccao.NORTE)
-        self.__passos = 0
+        self.__direccao = RespostaMover(Direccao.NORTE)
+        self.__counter = 0
 
     """
     recebe a percepcao, incrementando o número de
@@ -20,7 +20,7 @@ class ContarPassos(Comportamento):
     o agente toma a acao de apenas se mover para NORTE
     """
     def activar(self, percepcao):
-        self.__passos += 1
-        if self.__passos >= 10:
-            resposta = self.__direcao
+        self.__counter += 1
+        if self.__counter >= 10:
+            resposta = self.__direccao
             return resposta.activar(percepcao)

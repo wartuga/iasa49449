@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 """
 Representação de um operador/transição.
+// TODO: adcionar documentação teórica
 """
 class Operador(ABC):
     

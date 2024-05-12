@@ -12,7 +12,7 @@ class AproximarDir(Reaccao):
     se detectar um estimuloAlvo => vai dar 
     uma respostaMover na direção respetiva
     """
-    def __init__(self, direcao):
-        estimulo = EstimuloAlvo(direcao)
-        resposta = RespostaMover(direcao)
+    def __init__(self, direccao):
+        estimulo = EstimuloAlvo(direccao)
+        resposta = RespostaMover(direccao)
         super().__init__(estimulo, resposta)

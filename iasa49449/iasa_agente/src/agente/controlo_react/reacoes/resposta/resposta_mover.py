@@ -3,7 +3,6 @@ from sae import Accao
 """
 Especialização de resposta. Representa uma resposta de movimento na
 qual produz uma ação com a direção recebida.
-
 """
 class RespostaMover(Resposta):
     """
