@@ -35,6 +35,7 @@ class FronteiraPrioridade(Fronteira):
     """
     def __init__(self, avaliador):
         self._avaliador = avaliador
+        # código desnecessário
         # super().__init__()
 
     """

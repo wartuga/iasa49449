@@ -4,7 +4,9 @@ objetivos -------------> planeador -> plano
 modelo de planeamento ->
 
 Representa o planeador de um agente deliberativo,
-feito com o modelo do mundo e os objetivos
+feito com o modelo do mundo e os objetivos.
+
+// TODO Implementa um raciocínico ...
 """
 class Planeador(ABC):
     # escolher procura A*
