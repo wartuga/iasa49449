@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 
 """
-Representação da fronteira da árvore
-// TODO: adcionar documentação teórica
+Representação da fronteira da árvore.
+As folhas são a fronteira de exploração.
 """
 class Fronteira(ABC):
     """

@@ -22,7 +22,14 @@ class MecDelib:
     """
     def deliberar(self):
         estados = self.__modelo_mundo.obter_estados()
-        for estado in estados:
-            if self.__modelo_mundo.obter_elemento(estado) != Elemento.ALVO:
-                estados.remove(estado)
-        return estados
+        objetivos = [estado for estado in estados
+                     if self.__modelo_mundo.obter_elemento(estado) == Elemento.ALVO]
+        if objetivos:
+            objetivos.sort(key=self.__modelo_mundo.distancia)
+        
+        # simplificação de código
+        #for estado in estados:
+        #    if self.__modelo_mundo.obter_elemento(estado) != Elemento.ALVO:
+        #        estados.remove(estado)
+        
+            return objetivos

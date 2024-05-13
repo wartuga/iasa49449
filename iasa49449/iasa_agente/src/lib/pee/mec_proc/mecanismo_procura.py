@@ -4,7 +4,18 @@ from .solucao import Solucao
 
 """
 Representa o mecanismo de procura de um agente inteligente com memória
-// TODO: adcionar documentação teórica
+
+Algoritmo geral
+	Representação interna do problema
+		
+	Pegar no estado inicial
+	Aplicar um conjunto de operadores => gera um conjunto de estados
+	Verificar se para cada estado sucessor atinge o estado objetivo
+	Senão fazer isso para cada estado sucessor
+
+	Quantos sucessores tem cada estado?
+	Pode existir repetição de estados, gerando ciclos infinitos
+
 """
 class MecanismoProcura(ABC):
     """

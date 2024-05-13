@@ -167,6 +167,7 @@ class ControloDelib(Controlo):
         if self.__reconsiderar():
             self.__deliberar()
             self.__planear()
+        self.__mostrar()
         return self.__executar()
 
     """
@@ -180,7 +181,7 @@ class ControloDelib(Controlo):
     ou caso o modelo do mundo tiver sofrido alterações
     """
     def __reconsiderar(self):
-        return self.__plano or self.__modelo_mundo.alterado
+        return not self.__plano or self.__modelo_mundo.alterado
 
     """
     Método para efetuar a deliberação do agente
@@ -208,7 +209,10 @@ class ControloDelib(Controlo):
         if self.__plano:
             estado_agente = self.__modelo_mundo.obter_estado()
             operador = self.__plano.obter_accao(estado_agente)
-            return operador.accao
+            if operador:
+                return operador.accao
+            else:
+                self.__plano = None
 
     """
     Método para visualizar as informações internas
@@ -216,6 +220,15 @@ class ControloDelib(Controlo):
     como o do plano guardado por este
     """
     def __mostrar(self):
-        vista = self.__vista
+        vista = self.vista
+        # limpa a vista para não ficarem sobrepostas
+        vista.limpar()
+        # mostra o modelo do mundo atual na vista
         self.__modelo_mundo.mostrar(vista)
-        self.__plano.mostrar(vista)
+        # se houver plano mostra-o
+        if self.__plano:
+            self.__plano.mostrar(vista)
+        # se houverem objetivos, estes serão marcados
+        if self.__objetivos:
+            for objetivo in self.__objetivos:
+                self.vista.marcar_posicao(objetivo.posicao)

@@ -1,7 +1,9 @@
-from sae import Direccao
+from sae import Direccao, Elemento
 from .estado_agente import EstadoAgente
 from math import dist
 from .operador_mover import OperadorMover
+from plan.modelo.modelo_plan import ModeloPlan
+
 """
 Controlo Deliberativo
 	Modelo do mundo ---> Mecanismo de deliberação
@@ -22,17 +24,19 @@ mostrar as informações do modelo num painel
 """
 Representa a representação do ambiente para um agente
 deliberativo.
+O modeloMundo implementa modeloPlan para ser compativel com o pleaneador
 """
-class ModeloMundo:
+class ModeloMundo(ModeloPlan):
     """
     Construtor da classe
     """
     def __init__(self):
-        self.__alterado = False
+        self.__recolha = False
         self.__estado = None
         self.__estados = []
         self.__elementos = {}
-        self.__operadores = []
+        # os operadores serão sempre os mesmos para a mesma intância de ModeloMundo e as direções serão sempre quatro também 
+        self.__operadores = [OperadorMover(self, direccao) for direccao in list(Direccao)]
 
     """
     Obtém o estado do agente
@@ -50,20 +54,20 @@ class ModeloMundo:
     Obtém os operadores possíveis de aplicar ao agente
     em todas as direções
     """
-    def obter_operadores(self):  
+    def obter_operadores(self):
         return self.__operadores
 
     """
     Obtem o elemento na posição do estado recebido
     """
     def obter_elemento(self, estado):
-        return self.__elementos[estado.posicao]
+        return self.__elementos.get(estado.posicao)
 
     """
     Obtém a distância entre dois estados recebidos
     """
     def distancia(self, estado):
-        return dist(self.__estado, estado)
+        return dist(self.__estado.posicao, estado.posicao)
 
     """
     Atualiza as informações do modelo consoante a percepção recebida
@@ -71,21 +75,19 @@ class ModeloMundo:
     def actualizar(self, percepcao):
         posicao = percepcao.posicao
         posicoes = percepcao.posicoes
-        novo_estado = EstadoAgente(posicao)
-        novos_estados = [EstadoAgente(pos) for pos in posicoes]
-        novos_elementos = percepcao.elementos
-        novos_operadores = [OperadorMover(self, direccao) for direccao in list(Direccao)]
-        if self.__estado != novo_estado or self.__estados != novos_estados or self.__elementos != novos_elementos or self.__operadores != novos_operadores:
-            self.__alterado = True
-            self.__estado = novo_estado
-            self.__estados = novos_estados
-            self.__elementos = novos_elementos
-            self.__operadores = novos_operadores
-        else:
-            self.__alterado = False
+        self.__estado = EstadoAgente(posicao)
+        self.__estados = [EstadoAgente(pos) for pos in posicoes]
+        self.__elementos = percepcao.elementos
+        self.__recolha = percepcao.recolha
 
+    """
+    
+    """
     def mostrar(self, vista):
-        return NotImplementedError
+        for posicao, elemento in self.__elementos.items():
+            if elemento in [Elemento.ALVO, Elemento.OBSTACULO]:
+                vista.mostrar_elemento(posicao, elemento)
+        vista.marcar_posicao(self.__estado.posicao)
 
     """
     Propriedade alterado do agente, representa se
@@ -93,7 +95,7 @@ class ModeloMundo:
     """
     @property
     def alterado(self):
-        return self.__alterado
+        return self.__recolha
     
     """
     Propriedade dos elementos do agente, adquiridos

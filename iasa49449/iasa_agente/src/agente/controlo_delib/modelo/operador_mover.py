@@ -1,7 +1,7 @@
 from mod.operador import Operador
 from sae import Accao
 from math import sin, cos, dist
-from estado_agente import EstadoAgente
+from .estado_agente import EstadoAgente
 
 """
 Representa o operador mover, especialização de operador.
@@ -22,10 +22,10 @@ class OperadorMover(Operador):
     com a nova posição 
     """
     def aplicar(self, estado):
-        posicao = estado.posicao
-        nova_posicao_x = posicao.x + round(self.accao.passo * cos(self.ang))
-        nova_posicao_y = posicao.y + round(-self.accao.passo * sin(self.ang))
-        estado = EstadoAgente(nova_posicao_x, nova_posicao_y)
+        x, y = estado.posicao
+        nova_posicao_x = x + round(self.accao.passo * cos(self.ang))
+        nova_posicao_y = y + round(-self.accao.passo * sin(self.ang))
+        estado = EstadoAgente((nova_posicao_x, nova_posicao_y))
         if estado in self.__modelo_mundo.obter_estados():
             return estado
     

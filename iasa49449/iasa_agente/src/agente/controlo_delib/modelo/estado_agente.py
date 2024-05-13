@@ -17,7 +17,7 @@ class EstadoAgente(Estado):
     """
     Definição do valor identificador do estado do agente
     """
-    def id_valor(self):
+    def id_value(self):
         return hash(self.__posicao)
 
     """

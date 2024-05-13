@@ -1,8 +1,10 @@
 from abc import ABC, abstractmethod
 
 """
-Representação de um operador/transição.
-// TODO: adcionar documentação teórica
+Representação de um operador/transição de estado.
+Define uma ação.
+Os operadores abstraem as transformações(dinâmica)
+que podem ocorrer no estado de um problema ou sistema.
 """
 class Operador(ABC):
     

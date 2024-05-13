@@ -35,7 +35,7 @@ class FronteiraPrioridade(Fronteira):
     """
     def __init__(self, avaliador):
         self._avaliador = avaliador
-        super().__init__()
+        # super().__init__()
 
     """
     Método para inserir um nó na coleção

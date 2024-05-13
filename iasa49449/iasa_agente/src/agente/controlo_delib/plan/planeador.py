@@ -1,3 +1,0 @@
-"""
-Para a próxima aula
-"""

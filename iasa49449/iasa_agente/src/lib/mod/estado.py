@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 
 """
-Representação de um estado na modelação de um problema.
-// TODO: adcionar documentação teórica
+Representação de um estado/situação na modelação/configuração de um problema ou sistema.
+Identificação única
 """
 class Estado(ABC):
     """

@@ -3,7 +3,24 @@ from .mecanismo_procura import MecanismoProcura
 """
 Representação de uma procura em grafos.
 Especializando a class Mecanismo de Procura
-// TODO: adcionar documentação teórica
+
+Procura em grafos com ciclos
+	Estados repetidos na árvore de procura
+		Grafo do espaço de estados apresenta ciclos
+		Múltiplas transições para o mesmo estado
+		Ações correspondentes às transições de estado são reversíveis
+
+	Nós Abertos (Não explorados)
+		Fronteira de exploração
+	Nós Fechados (Explorados)
+		noSuc ~€ Abertos && noSuc ~€ Fechados => inserir noSuc em Abertos
+		noSuc € Abertos
+
+	Memória de nós processados
+		Nós gerados mas não expandidos
+			Abertos		|
+		Nós expandidos	| Explorados
+			Fechados	|
 """
 class ProcuraGrafo(MecanismoProcura):
 
