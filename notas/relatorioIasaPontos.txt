@@ -1,0 +1,6 @@
+a - Apresentação geral descuidada
+c - Falta de elementos textuais
+e - Falta de secções requeridas
+f - Introdução sem um ou mais elementos 
+g - Enquadramento teórico com elementos abordados em falta ou pouco descritos
+h - Partes do projecto (1, 2) muito resumidas ou sem descrição relevante da concretização efetuada (deve ser a parte 2)

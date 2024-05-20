@@ -1,0 +1,229 @@
+from pdm.mec_util import MecUtil
+
+"""
+Leis de Markov
+
+Ainda nao considera dinamica no ambiente (novas situações)
+O agente pode não ter controlo total sobre as ações que realiza (o agente pode ter um desvio)
+
+A otimização apesar de ser otimo, recolhemos o alvo mais próximo (não significa que seja a melhor solução)
+
+Processos de Decisão Sequencial
+
+	Um Processo de Decisão Sequencial (PDS) é um modelo matemático que descreve um ambiente onde um tomador de decisão interage ao longo do tempo. Em cada etapa de tempo, o tomador de decisão escolhe uma ação, o ambiente muda de estado, e o tomador de decisão recebe uma recompensa. O objetivo é geralmente maximizar a soma total das recompensas.
+	Neste problema, a decisão do agente num determinado mundo, os seus estados e ações
+	podem-se alterar ao longo do tempo.
+
+Dois problemas
+
+	O valor(utilidade) é algo de interesse do agente obter, pode não ser conhecido de 
+	imediato, acontecendo apenas diferido no tempo.
+	Existir incerteza no mundo (não ter conhecimento total do mundo).
+
+Nao conseguimos determinar totalmente a posição do agente, apenas a probabilidade desse acontecimento (e.g. probabilidade de o veiculo estar na faixa esquerda, sabemos +/-)
+
+Temos a probabilidade de o limite da faixa ser na marcação, ao não ter essa marcação,
+aumenta a incerteza, essa incerteza aumenta com a chuva e nevoeiro.
+
+Este sistema não tem uma função determinista.
+
+O sistema vai estar no estado atual, consegue antecipar os diferentes caminhos possíveis.
+
+Este caso pretende maximizar o ganho e não minimizar o custo, utilizando o valor.
+
+valor diferido no tempo
+(e.g. no mercado financeiro pode-se ganhar e perder
+Recompensas diferidas (recompensas ao fim de algum tempo, pode ser ganho ou perda)).
+A recompensa é diferida, o que significa que as ações que um agente toma agora podem não ter um impacto imediato, mas afetarão as recompensas futuras.
+
+O sistema está num estado, passar por estados sem ganho nem perda e no fim passar por um estado com perda ou ganho.
+
+Problema da decisão ao longo do tempo
+
+	Considerar o ganho e a perda
+	Considerar a incerteza na decisão
+	Ser cumulativo
+
+Com a incerteza, faz com que caminhos que eram indiferentes, agora torna um deles melhor
+que o outro
+
+Temos de definir uma modulação do mundo que não seja determinística
+
+Espaço de estados probabilistico, adicionar a informação de recompensa, para termos os ganhos e as perdas.
+
+Incorporar a incerteza, quando ocorre uma ação, não gera uma transição, mas sim várias com uma probabilidade associada.
+
+Cadeia de Markov
+
+	Uma Cadeia de Markov é um tipo de processo estocástico que possui a propriedade de Markov.
+	
+	(Propriedade de Markov)
+	Cadeia de evolução de futuros possíveis, cada um desses ramos tem uma evolução possivel e só depende do estado atual.
+
+	As Leis de Markov são um conjunto de teoremas matemáticos que descrevem sistemas que seguem a propriedade de Markov. A propriedade de Markov é a característica de um processo estocástico onde a probabilidade de transição para qualquer estado futuro depende apenas do estado atual e não da sequência de eventos que precederam.
+
+	Representação do mundo sob a forma de PDM (processo de decisão de Markov)
+
+	s1(a1) -> r1+1 -> s1+1(a1+1) -> r1+2 -> s1+2(a1+2) -> r1+3 -> s1+3(a1+3)
+
+	Representação dos estados possiveis(S) e das ações possiveis(A(s)).	
+	Modelo de transição(T(s,a,s')) dá-nos as probabilidades de transição de estado.
+	Função de recompensa, representa a recompensa esperada na transição (R(s,a,s')).
+	Taxa de desconto(y), por ver...
+
+Não é possivel fazer raciocinio perfeito, apenas o aproximado.
+
+Recompensas aditivas:
+	Uh([s0,s1,s2,...]) = R(s0) + R(s1) + ...
+Recompensas descontadas (no tempo)
+	Uh([s0,s1,s2,...]) = R(s0) + yR(s1) + y^2R(s2) + ...
+y = fator de desconto/o que se retem (entre 0 e 1) aplicada a cada unidade de tempo exponencialmente
+
+Fazendo com que a recompensa imediata seja mais valorizada.
+
+O fator de desconto a 0, apenas considera o presente.
+
+Conseguimos atribuir o valor a cada estado, simplifica a tomada de decisão.
+O valor do estado é o valor da utlidade de cada estado, ou seja, conseguimos ter uma estratégia para cada estado, sendo este designado política de estratégia global da tomada de decisão.
+
+A política de ação(mais genérica que a política de estratégia global da tomada de decisão) é a que indica em cada estado a ação a ser realizada.
+
+política ótima refere-se à estratégia que maximiza ou minimiza uma função objetivo, dadas as restrições do problema. Neste caso será maximizar o ganho e não há outra política que possa gerar uma recompensa esperada maior.
+
+Uma politica é uma função que diz para cada estado a ação a realizar.
+
+	Política determinista
+		pi: S -> A(s); s € S
+
+	Política não determinista
+		pi: S * A(s) -> [0,1]; s € S
+
+e.g.
+S = {s0, s1, s2}
+pol: S -> A(s), s € S
+pol(s: S): A
+
+Uma função é um conceito matemático que associa elementos do domínios aos do contra-domínio.
+
+Se eu sei o estado, então sei a ação.
+
+pol1(s0) = a1
+pol1(s1) = a2
+pol1(s2) = a0
+
+pol2(s0) = a4
+pol2(s1) = a5
+pol2(s2) = a6
+
+pol1 = {
+	s0: a1,
+	s1: a2,
+	s2: a0
+}
+
+A = {a1, a2}
+D = {b1, b2}
+AxB = {(a1,b1), (a1,b2), (a2,b1), (a2,b2)}
+
+pol: SxA -> [0,1]
+
+e.g.
+pol1(s0, a0) = 0.3
+pol1(s0, a1) = 0.5
+pol1(s0, a2) = 0.2
+
+Para cada par estado-ação indica a probabilidade da ação ser executada no estado.
+
+Política comportamental
+
+    ...
+
+e.g.
+deterministica
+pol((1,1)) = NORTE
+pol((1,2)) = OESTE
+pol((1,3)) = NORTE
+pol((1,4)) = OESTE
+
+nao deterministica
+pol((1,1), 0,3) = NORTE
+
+O principio da solução ótima
+
+	e.g.
+	r = -1 movimento
+	r = -10 colisão
+	r = -10 colisão
+	valor médio/esperado
+	R = -1*0,8 + -10*0,1 + -10*0,1 
+	  = -2.8
+	A recompensa é não determinista num estado
+
+	Valor esperado
+	E(x) = somatório(i=0 a infinito) xi*p(xi)
+
+	Cadeia de Markov (política: pi)
+	r1^1 -> r2^1 -> r3^1
+	
+	U^pi(s)	= E(r1+yr2+y^2r3+...) // E(r1 + g*(r2 + g*r3 + ...)); r2 + g*r3 + ... utilidade do estado reguinte U(s') 
+		    = E(r1+yU(s'))
+
+	1 - Selecionar uma ação
+	2 - Ver o estado sucessor que foi gerado
+
+	Transição de estado com base num modelo (politica pi(s,a))
+	Probabilidade da transição
+	T(s,a,s')
+	s' € suc(s,a) contido ou igual a S
+
+	Equações de Bellman (Utilidade com base num modelo)
+	U^pi(s) 	= E(r1+yr2+y^2r3+...)
+			= E(r1+yU^pi(s'))
+			= somatório(a)pi(s,a)somatório(s')T(s,a,s')[R(s,a,s') + yU^pi(s')]
+			somatório(a)pi(s,a) - prob. da ação ser escolhida 
+            somatório(s')T(s,a,s') - prob. de transição para um estado s'
+
+	A utilidade do estado é o valor esperado da recompensa imediata mais o valor 
+    esperado da utilidade do estado seguinte.
+
+	Politica ótima pi*
+	pi*(s) = argmax(a, somatório(s')T(s,a,s')[R(s,a,s') + yU(s')])
+	// argmax(a, U(s,a)) obtém o argumento x que maximiza a função f(x)
+
+	Utilidade de estado para a política ótima
+	U^pi*(s) = max(a, somatório(s')T(s,a,s')[R(s,a,s') + yU^pi(s')])
+
+	pol[s] = max(A, key=lambda a: U(s, a)) // A - conjunto de argumentos
+	U(s, a) = soma(s', T(s,a,s')*[R(s,a,s') + y*U(s')])
+	
+	U(s) = soma(a, pol(s,a)*U(s,a))
+
+	Iteração da utilidade de estado
+		Iniciar U(s):
+			U(s) <- 0, para todo o s € S
+
+		Iterar U(s):
+			U(s) <- max(a, somatório(s')T(s,a,s')[R(s,a,s') + yU(s')], para todo o s € S
+		
+		No limite:
+			U -> U^pi*
+
+	arquitetura adaptável -> conseguir fazer a evolução
+
+	outra variante do planeador baseado em pdm, sob a forma de uma biblioteca
+"""
+"""
+Representa o mecanismo de um processo de decisão de Markov (PDM).
+gama é o fator de desconto
+"""
+class PDM:
+
+    def __init__(self, modelo, gama, delta_max):
+        self.__mec_util = MecUtil(modelo, gama, delta_max)
+        self.__modelo = modelo
+
+
+    def politica(self, U):
+
+
+    def resolver(self):
