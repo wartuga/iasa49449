@@ -218,4 +218,7 @@ O principio da solução ótima
 		No limite:
 			U -> U^pi*
 
+	arquitetura adaptável -> conseguir fazer a evolução
+
+	outra variante do planeador baseado em pdm, sob a forma de uma biblioteca
 	
