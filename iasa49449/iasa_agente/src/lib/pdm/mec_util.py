@@ -38,28 +38,27 @@ class MecUtil:
     retorna a utilidade
     """
     def utilidade(self):
-        estados = self.__modelo.S()
+        # principio da simplicidade
+        S, A = self.__modelo.S, self.__modelo.A
         # Iniciar a utilidade a 0 em todos os elementos do conjunto de estados.
-        utilidade = {estado: 0 for estado in estados}
+        U = {s: 0.0 for s in S()} # estados = S(); utilidade = {estado: 0 for estado in estados}
         # aproximação do do-while com while True e break
         while True:
             # Guardar a utilidade anterior
-            utilidade_anterior = utilidade.copy()
+            utilidade_anterior = U.copy()
             # Inicializar o delta a 0
             delta = 0
             # Calcular a utilidade para cada estado
-            for estado in estados:
-                # Obter a ação para o estado
-                accao = self.__modelo.A(estado)
-                # Calcular a utilidade para o estado, sendo o máximo entre a ação e a utilidade da ação	
-                utilidade[estado] = max(accao, self.util_accao(estado, accao, utilidade))
+            for s in S():
+                # Calcular a utilidade para o estado, sendo o máximo de todas as ações para o estado atual	
+                U[s] = max([self.util_accao(s, a, utilidade_anterior) for a in A(s)], default = 0) # utilidade[s] = max(accao, self.util_accao(estado, accao, utilidade))
                 # Calcular o delta sendo o máximo entre o delta e a diferença entre a utilidade do estado e a utilidade anterior do estado
-                delta = max(delta, abs(utilidade[estado] - utilidade_anterior[estado]))
+                delta = max(delta, abs(U[s] - utilidade_anterior[s]))
             # Se o delta for menor que o delta máximo, termina o ciclo
-            if delta < self.__delta_max:
+            if delta <= self.__delta_max:
                 break
         # Retorna a utilidade do estado
-        return utilidade
+        return U
 
     """
     Método para calcular a utilidade de uma ação,
@@ -91,4 +90,9 @@ class MecUtil:
             somatório(s')T(s,a,s') - prob. de transição para um estado s'
     """
     def util_accao(self, s, a, U):
-        return sum([self.__modelo.T(s, a, sn) * (self.__modelo.R(s, a, sn) + self.__gama * U[sn]) for sn in self.__modelo.suc(s, a)])
+        # principio da simplicidade
+        T, R, suc = self.__modelo.T, self.__modelo.R, self.__modelo.suc
+        return sum([T(s, a, sn) * (R(s, a, sn) + self.__gama * U[sn]) for sn in suc(s, a)])
+    
+        # não se encontra incorreto porém é mais custoso de ler e entender
+        # return sum([self.__modelo.T(s, a, sn) * (self.__modelo.R(s, a, sn) + self.__gama * U[sn]) for sn in self.__modelo.suc(s, a)])

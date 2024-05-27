@@ -217,13 +217,34 @@ Representa o mecanismo de um processo de decisão de Markov (PDM).
 gama é o fator de desconto
 """
 class PDM:
+	"""
+	Construtor da classe   
+	"""
+	def __init__(self, modelo, gama, delta_max):
+		self.__modelo = modelo
+		self.__mec_util = MecUtil(modelo, gama, delta_max)
 
-    def __init__(self, modelo, gama, delta_max):
-        self.__mec_util = MecUtil(modelo, gama, delta_max)
-        self.__modelo = modelo
+	"""
+	Método para calcular a política recebendo a utilidade.
+	Para cada estado calcula o máximo da utilidade da ação,
+	utilizando a função util_accao do mecanismo de utilidade.
+	Retorna então a política, permitindo o agente saber o 
+	que fazer em cada estado. 
+	"""
+	def politica(self, U):
+		politica = {}
+		for estado in self.__modelo.S():
+			# accao = self.modelo.A(estado)
+			politica[estado] = max(self.__modelo.A(estado), key=lambda acao: self.__mec_util.util_accao(estado, acao, U), default = 0) # max([self.__mec_util.util_accao(estado, acao, U) for acao in self.modelo.A(estado)], default = 0) # max(accao, self.util_accao(estado, accao, utilidade))
+		return politica
 
-
-    def politica(self, U):
-
-
-    def resolver(self):
+	"""
+	Método para retornar um tuplo composto pela utilidade
+	e pela política.
+	A utilidade é calculada através do mecanismo de utilidade
+	do mecanismo de utilidade e a política é calculada através
+	do método politica desta classe.
+	"""
+	def resolver(self):
+		utilidade = self.__mec_util.utilidade()
+		return utilidade, self.politica(utilidade)
