@@ -32,8 +32,8 @@ class ModeloPDM(ABC):
         Retorna a probabilidade de obter o valor da recompensa
         """
 
-    """
-    Retorna a lista de estados sucessores
-    """
+    @abstractmethod
     def suc(self, s, a):
-        return [sn for sn in self.S() if self.T(s, a, sn) > 0]
+        """
+        Retorna a lista de estados sucessores
+        """

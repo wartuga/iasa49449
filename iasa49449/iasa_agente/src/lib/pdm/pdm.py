@@ -232,10 +232,12 @@ class PDM:
 	que fazer em cada estado. 
 	"""
 	def politica(self, U):
+		A, S = self.__modelo.A, self.__modelo.S
 		politica = {}
-		for estado in self.__modelo.S():
+		for estado in S():
 			# accao = self.modelo.A(estado)
-			politica[estado] = max(self.__modelo.A(estado), key=lambda acao: self.__mec_util.util_accao(estado, acao, U), default = 0) # max([self.__mec_util.util_accao(estado, acao, U) for acao in self.modelo.A(estado)], default = 0) # max(accao, self.util_accao(estado, accao, utilidade))
+			if A(estado):
+				politica[estado] = max(A(estado), key=lambda acao: self.__mec_util.util_accao(estado, acao, U), default = 0) # max([self.__mec_util.util_accao(estado, acao, U) for acao in self.modelo.A(estado)], default = 0) # max(accao, self.util_accao(estado, accao, utilidade))
 		return politica
 
 	"""
